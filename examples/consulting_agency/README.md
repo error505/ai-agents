@@ -86,6 +86,8 @@ graph TD
 *Rectangles = managers / teams; rounded = example workers.*
 
 ---
+![image](https://github.com/user-attachments/assets/2c70296b-e581-4716-8dda-2c07c0e5e238)
+
 
 ### 🚀 Next steps
 
