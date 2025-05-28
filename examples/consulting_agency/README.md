@@ -30,62 +30,7 @@ The Executive-Director auto-routes each request; you just use natural language�
 
 ---
 
-### 🗺️ Agent hierarchy (Mermaid)
-
-```mermaid
-graph TD
-  ED[Executive-Director (coordinate)]
-  
-  subgraph Managers
-    CM[Content-Mgr]
-    CoM[Comms-Mgr]
-    MM[Marketing-Mgr]
-    RM[Research-Mgr]
-    OM[Outbound-Mgr]
-    PM[Project-Mgr]
-    SM[Sales-Mgr]
-    DM[Developer-Mgr]
-    QM[Review-Mgr]
-    SecM[Security-Mgr]
-  end
-  
-  subgraph CoordTeams
-    LG[Lead-Gen Team\n(coordinate)]
-    EXP[Experiments Team\n(coordinate)]
-    ONB[Onboarding Team\n(coordinate)]
-  end
-  
-  CS[Cost-Sentinel\n(collaborate)]
-  
-  ED -->|delegates| CM
-  ED --> CoM
-  ED --> MM
-  ED --> RM
-  ED --> OM
-  ED --> PM
-  ED --> SM
-  ED --> DM
-  ED --> QM
-  ED --> SecM
-  ED --> LG
-  ED --> EXP
-  ED --> ONB
-  ED --> CS
-  
-  %% just one worker sample per pool to keep diagram readable
-  CM --> CI[Content-Ideator]
-  PM --> DocA[Doc-Architect]
-  DM --> FE[Frontend-Dev]
-  SM --> Comp[Competitive-Intel]
-  LG --> Parser[Parser]
-  ONB --> Chan[Slack-Channel-Bot]
-  QM --> Crit[Review-Critique]
-  SecM --> Lint[SecOps-Linter]
-```
-
-*Rectangles = managers / teams; rounded = example workers.*
-
----
+### 🗺️ Agent hierarchy 
 ![image](https://github.com/user-attachments/assets/2c70296b-e581-4716-8dda-2c07c0e5e238)
 
 
