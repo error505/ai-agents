@@ -1,43 +1,229 @@
-### 📊 Current AI-Agent
+## 🧠 **Executive Layer**
 
-| Layer                           | Mode          | Count | Agents & Core Tasks                                                                                                                                                                                                                                |
-| ------------------------------- | ------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Executive**                   | `coordinate`  | 1     | **Executive-Director** – delegates, aggregates Slack summaries, posts digest & WhatsApp, triggers Cost-Sentinel nightly                                                                                                                            |
-| **Route-mode managers**         | `route`       | 10    | Content-Mgr · Comms-Mgr · Marketing-Mgr · Research-Mgr · Outbound-Mgr · **Project-Mgr** (now with doc squad) · Sales-Mgr · Developer-Mgr · Review-Mgr (QA) · Security-Mgr                                                                          |
-| **Coordinate teams (mid-tier)** | `coordinate`  | 3     | **Lead-Gen Team** (11-step pipeline) · **Experiments Team** (plan/run/report A/Bs) · **Onboarding Team** (Slack + Drive + CRM spin-up)                                                                                                             |
-| **Collaborate sentinel**        | `collaborate` | 1     | **Cost-Sentinel** – listens to MCP cost tags, posts daily spend chart                                                                                                                                                                              |
-| **Worker agents**               | —             | 56    | 6 Content · 5 Comms · 3 Marketing · 2 Research · 2 Outbound · 6 Project (doc + ops) · 3 Developer · 9 Sales specialists · 11 Lead-Gen micros · 1 QA Critique · 3 Experiment workers · 3 Onboarding bots · 1 SecOps linter · 1 Cost sentinel worker |
+**Agent**: `Executive-Director`
+**Mode**: `coordinate`
+**Tools**: SlackTools, TwilioTools
+**Responsibilities**:
 
-**Grand total → 71 autonomous agents**
-(15 containers / managers / sentinels + 56 individual workers)
+* Delegates to all managers and teams
+* Posts daily digest to `#executive_updates` and WhatsApp
+* Triggers `Cost-Sentinel` daily at 23:00 UTC
 
 ---
 
-### 🛠️ Using the stack — sample prompts
+## 🧩 **Functional Manager Teams**
 
-| Goal                      | Say to Executive-Director                                                         |
-| ------------------------- | --------------------------------------------------------------------------------- |
-| **Generate leads**        | “Pull 12 VP-Engineering leads in Ontario and email drafts.”                       |
-| **Quick PoC site**        | “Spin up a React-TS landing page that calls /api/leads.”                          |
-| **FastAPI stub**          | “I need a FastAPI micro-service with `POST /quote` for a demo.”                   |
-| **Package & price**       | “Package our AI Audit into Good/Better/Best and give me a price table.”           |
-| **Full docs**             | “Outline full project docs for client BlueRail, then write the API section.”      |
-| **A/B test**              | “Run an A/B headline test for the pricing page and stop losers after 500 visits.” |
-| **New-client onboarding** | “Onboard Acme Corp — create Slack, Drive, CRM deal.”                              |
-| **Security sweep**        | “Scan the React PoC repo for secrets or open CORS.”                               |
+### 📚 Content Team
 
-The Executive-Director auto-routes each request; you just use natural language—no need to address workers directly.
+**Manager**: `Content-Manager`
+**Agents**:
+
+* `Content-Ideator`: Generates hooks (DuckDuckGo, Wikipedia)
+* `LinkedIn-Post-Writer`: Writes LinkedIn posts
+* `YouTube→Blog`: Transforms YouTube to blog
+* `LinkedIn→Newsletter`: LinkedIn post to newsletter
+* `YouTube→LinkedIn`: Highlights to LinkedIn
+* `LinkedIn→X`: Shortens content for X
 
 ---
+
+### 💬 Comms Team
+
+**Manager**: `Comms-Manager`
+**Agents**:
+
+* `Slack-Assistant`: Slack replies (SlackTools)
+* `LinkedIn-DM-Assistant`: Handles LinkedIn DMs
+* `WhatsApp-Assistant`: Handles WhatsApp (TwilioTools)
+* `Calendar-Assistant`: Manages Google Calendar
+* `Gmail-Assistant`: Writes Gmail drafts
+
+---
+
+### 📈 Marketing Team
+
+**Manager**: `Marketing-Manager`
+**Agents**:
+
+* `Ad-Designer`: Creates ads (ReplicateTools)
+* `Social-Performance-Analyst`: Social KPIs (GDrive, Pandas)
+* `Ad-Performance-Analyst`: ROAS analysis (GDrive, Pandas)
+
+---
+
+### 🔬 Research Team
+
+**Manager**: `Research-Manager`
+**Agents**:
+
+* `General-Researcher`: Web research (DuckDuckGo)
+* `GTM-Strategist`: Go-to-market briefs (Pandas)
+
+---
+
+### ✉️ Outbound Team
+
+**Manager**: `Outbound-Manager`
+**Agents**:
+
+* `Intent-Signal-Analyst`: Scores leads' intent (DuckDuckGo, Pandas)
+* `Outbound-Copywriter`: Writes cold emails (GmailTools)
+
+---
+
+## 💼 Sales Team
+
+**Manager**: `Sales-Manager`
+**Sub-team**: `Lead-Gen Team` (see below)
+**Agents**:
+
+* `Competitive-Intel`: Battle cards (DuckDuckGo, Wikipedia)
+* `Pricing-Strategist`: Builds pricing tables (Pandas)
+* `Offer-Packager`: Creates Good/Better/Best tiers
+* `Sales-Enablement`: Creates decks (GoogleDrive, FileTools)
+* `Pipeline-Forecaster`: Forecasts bookings (CSV, Pandas)
+* `Pre-Call-Assistant`: Discovery brief
+* `Post-Call-Assistant`: Meeting recap
+* `Lead-Researcher`: Manual lookup
+* `CRM-Assistant`: Updates CRM (CSV)
+
+---
+
+## 🧪 Experiments Team
+
+**Team**: `Experiments`
+**Mode**: `coordinate`
+**Agents**:
+
+* `Experiment-Planner`: A/B test definitions (Pandas)
+* `Experiment-Runner`: Executes and monitors (Shell)
+* `Experiment-Reporter`: Reports outcomes (Pandas)
+
+---
+
+## 👋 Onboarding Team
+
+**Team**: `Onboarding-Team`
+**Mode**: `coordinate`
+**Agents**:
+
+* `Slack-Channel-Bot`: Creates Slack workspace
+* `Drive-Space-Bot`: Sets up Google Drive
+* `CRM-Deal-Bot`: Creates CRM entries (CSV)
+
+---
+
+## 🧪 QA & Governance
+
+### QA
+
+**Manager**: `Review-Manager`
+**Agents**:
+
+* `Review-Critique`: Brand/style QA (rewrites content off-brand)
+
+### Security
+
+**Manager**: `Security-Manager`
+**Agents**:
+
+* `SecOps-Linter`: Code scan for secrets, PII, CORS issues (PythonTools)
+
+---
+
+## 🧾 Cost Monitoring
+
+**Agent**: `Cost-Sentinel`
+**Mode**: `collaborate`
+**Tools**: PandasTools
+**Role**:
+
+* Collects cost tags
+* Posts daily #finops chart
+
+---
+
+## 🧑‍💻 Developer Team
+
+**Manager**: `Developer-Manager`
+**Agents**:
+
+* `Frontend-Dev`: Builds React/Vite apps (File, Shell)
+* `Backend-Dev`: Builds FastAPI backends (Python, Shell)
+* `Fullstack-Integrator`: Integrates, adds CORS, envs
+
+---
+
+## 📄 Documentation Team *(New in v6)*
+
+**Part of**: `Project-Manager`
+**Agents**:
+
+* `Doc-Architect`: Designs doc skeleton
+* `API-Doc-Writer`: Markdown + code samples (PythonTools)
+* `Changelog-Agent`: Creates release notes
+* `Tutorial-Writer`: Onboarding guides
+* `Notion-Assistant`: Updates Notion workspace
+* `GDrive-Assistant`: Manages GDrive assets
+
+---
+
+## 🧠 Lead-Gen Pipeline (11 steps)
+
+**Team**: `Lead-Gen Team`
+**Mode**: `coordinate`
+**Pipeline**:
+
+1. `Parser`: Extracts query params
+2. `Searcher`: Google LinkedIn search
+3. `Extractor`: Extracts name, company, etc.
+4. `Enricher`: Adds firmographic data
+5. `Scorer`: Adds 0-100 score
+6. `Emailer`: Writes outreach email
+7. `Sentiment`: Scores company sentiment
+8. `FollowUp`: Adds followup emails (Day 3, 8)
+9. `Bounce`: MX check
+10. `Geo`: Adds lat/lng, map
+11. `Summariser`: Markdown table
+
+---
+
+## 🚀 FastAPI Endpoint
+
+| **Endpoint** | `/api/generate-leads`                                                                                             |
+| ------------ | ----------------------------------------------------------------------------------------------------------------- |
+| **Input**    | JSON: `{ "message": "..." }`                                                                                      |
+| **Response** | `{ "leads_markdown": "..." }`                                                                                     |
+| **Purpose**  | Enables direct, stateless access to Lead-Gen without invoking the chat loop. Still uses 11 agents under the hood. |
+| **Benefits** | Parallelism, clean integration with CRM, reuse in Zapier/UIs                                                      |
+
+---
+
+## 🔢 Agent Count (v6 Total)
+
+| Category                      | Count  |
+| ----------------------------- | ------ |
+| Route-mode managers           | 10     |
+| Coordinate teams (incl. Exec) | 5      |
+| Sentinel                      | 1      |
+| Worker agents                 | 55     |
+| **Total agents**              | **71** |
+
+---
+
+## ✅ Example Tasks via Executive-Director
+
+| Request                                               | Outcome                                          |
+| ----------------------------------------------------- | ------------------------------------------------ |
+| “Pull 10 CFO leads in Germany”                        | Lead-Gen pipeline is triggered                   |
+| “Build a React PoC for a pricing calculator”          | Developer team delivers file structure           |
+| “Outline and generate API docs for BlueRail client”   | Documentation agents kick in via Project-Manager |
+| “Scan the GitHub repo for secrets or bad CORS config” | Security Manager runs SecOps-Linter              |
+| “Run A/B test on pricing headlines”                   | Experiment team plans, runs, and reports         |
+| “Create Slack + Drive + CRM for Acme Inc”             | Onboarding team spins up all systems             |
+
+---
+
 
 ### 🗺️ Agent hierarchy 
 ![image](https://github.com/user-attachments/assets/2c70296b-e581-4716-8dda-2c07c0e5e238)
-
-
-### 🚀 Next steps
-
-* **Run a dry-run**:
-  `python marketing_agency_ai_stack.py` and watch the Slack channels populate.
-* **Hit the REST lead service**:
-  `curl -X POST localhost:8000/api/generate-leads -d '{"message":"10 CFOs in France"}'`
-* **Customize**: update routing keywords or memory paths as your org evolves.
